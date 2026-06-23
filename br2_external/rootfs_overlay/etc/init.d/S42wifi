@@ -1,0 +1,38 @@
+#!/bin/sh
+
+WPA_CONF=/etc/wpa_supplicant/wpa_supplicant.conf
+WPA_PID=/var/run/wpa_supplicant.pid
+IFACE=wlan0
+
+case "$1" in
+  start)
+    echo "Starting WiFi..."
+    modprobe brcmfmac 2>/dev/null || true
+    sleep 2
+
+    wpa_supplicant -B -i ${IFACE} \
+      -c ${WPA_CONF} \
+      -D nl80211 \
+      -P ${WPA_PID} \
+      -f /var/log/wpa_supplicant.log
+
+    echo "Starting dhcpcd on ${IFACE}..."
+    dhcpcd ${IFACE} &
+    ;;
+  stop)
+    echo "Stopping dhcpcd..."
+    dhcpcd --exit ${IFACE} 2>/dev/null || killall dhcpcd 2>/dev/null
+
+    echo "Stopping wpa_supplicant..."
+    kill $(cat ${WPA_PID} 2>/dev/null) 2>/dev/null
+    rm -f ${WPA_PID}
+    ;;
+  restart)
+    $0 stop
+    sleep 1
+    $0 start
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|restart}"
+    exit 1
+esac

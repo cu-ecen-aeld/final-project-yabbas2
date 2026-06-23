@@ -1,0 +1,4 @@
+config BR2_PACKAGE_GPIOEVT
+    bool "gpioevt"
+    help
+        GPIO event logger driver
