@@ -12,8 +12,7 @@ define GPIOEVTD_BUILD_CMDS
 endef
 
 define GPIOEVTD_INSTALL_TARGET_CMDS
-    $(INSTALL) -m 0755 $(@D)/gpioevtd $(TARGET_DIR)/usr/bin
+    $(INSTALL) -D -m 0755 $(@D)/gpioevtd $(TARGET_DIR)/usr/bin
 endef
 
 $(eval $(generic-package))
-
