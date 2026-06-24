@@ -1,1 +1,2 @@
 source "$BR2_EXTERNAL_PROJ_EXT_PATH/package/gpioevt/Config.in"
+source "$BR2_EXTERNAL_PROJ_EXT_PATH/package/gpioevtd/Config.in"

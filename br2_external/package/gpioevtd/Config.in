@@ -1,0 +1,5 @@
+config BR2_PACKAGE_GPIOEVTD
+    bool "gpioevt daemon"
+    help
+        GPIO event logger daemon
+
