@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-GPIOEVTD_VERSION = 8f070901059be0bc7d5eb1ad335b91ac3596d86f
+GPIOEVTD_VERSION = 33d760df5277d9c6aaa7e8fbced56a82782fbb28
 GPIOEVTD_SITE = $(call github,yabbas2,gpioevt-daemon,$(GPIOEVTD_VERSION))
 
 define GPIOEVTD_BUILD_CMDS

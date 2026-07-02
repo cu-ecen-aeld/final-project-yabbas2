@@ -2,7 +2,7 @@
 
 case "$1" in
   start)
-      modprobe gpioevt gpios=17
+      modprobe gpioevt gpios=17,27
     ;;
   stop)
       rmmod gpioevt
