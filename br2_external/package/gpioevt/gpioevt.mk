@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-GPIOEVT_VERSION = 793b21e9241c813b7e4534d1fe5564952a5420b5
+GPIOEVT_VERSION = aac5f81b5b16fce78f7f3645b434f0488ea13de6
 GPIOEVT_SITE = $(call github,yabbas2,gpioevt-ldd,$(GPIOEVT_VERSION))
 
 define GPIOEVT_LINUX_CONFIG_FIXUPS
